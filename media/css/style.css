@@ -5613,6 +5613,7 @@ header .user .dropdown-menu a:hover {
 }
 .message .thumbnail {
   background-color: #fff;
+  max-width: 50%;
   margin-top: 5px;
   display: inline-block;
   overflow: hidden;
@@ -5625,7 +5626,9 @@ header .user .dropdown-menu a:hover {
   transition: none;
 }
 .message .thumbnail img {
-  height: 200px;
+  min-width: 30px;
+  min-height: 30px;
+  max-height: 200px;
 }
 .message.fragment {
   padding-top: 0;

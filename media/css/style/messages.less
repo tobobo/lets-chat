@@ -68,13 +68,16 @@
     }
     .thumbnail {
         background-color: #fff;
+        max-width: 50%;
         margin-top: 5px;
         display: inline-block;
         overflow: hidden;
         .box-shadow(none);
         .transition(none);
         img {
-            height: 200px;
+            min-width: 30px;
+            min-height: 30px;
+            max-height: 200px;
         }
     }
     &.fragment {
