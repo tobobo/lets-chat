@@ -1,0 +1,15 @@
+
+//
+// Settings
+//
+
+module.exports = {
+    port: 5000,
+    database: {
+        host: 'localhost',
+        port: 27017
+        name: 'letschat',
+        user: '',
+        password: ''
+    }
+}

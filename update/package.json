@@ -1,0 +1,22 @@
+{
+    "name": "lcb",
+    "version": "0.2.0",
+    "author": "Houssam Haidar <houssam@sdelements.com>",
+    "contributors": [
+        {"name": "Jeffery Bain", "email": "jeff@sdelements.com"},
+        {"name": "Ramanan Sivaranjan", "email": "ramanan@sdelements.com"}
+    ],
+    "keywords": [
+        "chat",
+        "group chat"
+    ],
+    "dependencies": {
+    },
+    "engine": {
+        "node": ">=0.9"
+    },
+    "scripts": {
+        "start": "nodejs app.js"
+    }
+}
+
