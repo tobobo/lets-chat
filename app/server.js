@@ -564,6 +564,7 @@ var Server = function(config) {
                 redirectServer.get('*', function(req, res){
                     res.redirect('https://' + req.host + ':' + self.config.https.port + req.path)
                 })
+                console.log('port is', self.config.port);
                 http.createServer(redirectServer)
                   .listen(self.config.port, self.config.host);
                 // Create HTTPS server
