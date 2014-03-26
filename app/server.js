@@ -556,6 +556,7 @@ var Server = function(config) {
             // Go go go!
             if (!self.config.https) {
                 // Create regular HTTP server
+                console.log('port is', self.config.port);
                 self.server = http.createServer(self.app)
                   .listen(self.config.port, self.config.host);
             } else {
