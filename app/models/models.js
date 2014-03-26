@@ -1,4 +1,5 @@
-push = require('pushover-notifications');
+var push = require('pushover-notifications');
+var config = require('../../settings.js');
 
 var models = {
     user: require('./user.js'),
@@ -23,6 +24,7 @@ models.message.schema.pre('save', function (done) {
       });
       message = this
       roomName = ''
+      roomId = ''
       userName = ''
 
       models.user.findById(message.owner).exec().then(function(owner) {
@@ -30,23 +32,20 @@ models.message.schema.pre('save', function (done) {
         return models.room.findById(message.room).exec();
       }).then(function(room) {
         roomName = room.name;
-        console.log('here');
+        roomId = room.id;
         return models.user.find().or(searchObjs).exec();
       }).then(function (users) {
 
         if (!!users) for (var i = 0; i < users.length; i++) {
-          if (!!users[i].pushoverKey) {
-            console.log ('creating message');
+          if (!!users[i].pushoverKey && users[i].id != message.owner) {
             var p = new push({
               user: users[i].pushoverKey,
               token: process.env.MPI_CHAT_PUSHOVER_TOKEN
             });
-
             var msg = {
               title: userName + " mentioned you in " + roomName,
-              message: message.text
+              message: message.text + "\n" + "http://" + config.host + (config.port != 80 ? ":" + config.port : "") + "/#!/room/" + roomId
             }
-
             p.send(msg, function(error, result) {
               if (error) {
                 throw error;
