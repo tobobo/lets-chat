@@ -1,8 +1,10 @@
 var config = {
 
     // Server
-    host: process.env.MPI_CHAT_HOST || 'localhost', // Not required
+    host: '', // Not required
     port: process.env.PORT || 5000,
+
+    url: process.env.MPI_CHAT_HOST,
 
     // Registration
     disable_registration: false,
