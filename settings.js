@@ -36,6 +36,13 @@ var config = {
     uploads_dir: 'uploads',
     plugins_dir: 'plugins',
 
+    s3: {
+        accessKeyId: process.env.MPI_CHAT_AWS_ACCESS_KEY_ID,
+        secretAccessKey: process.env.MPI_CHAT_AWS_SECRET_ACCESS_KEY,
+        region: process.env.MPI_CHAT_AWS_REGION,
+        bucket: process.env.MPI_CHAT_AWS_BUCKET
+    },
+
     // Plugins
     plugins: {
         'emotes': {
