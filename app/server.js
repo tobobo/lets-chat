@@ -449,47 +449,6 @@ var Server = function(config) {
                                     var url = 'https://' + client.urlBase + '/' + filePath
                                     callback(null, url, savedFile);
                                 });
-<<<<<<< HEAD
-                            });        
-
-                        } else {
-                            var client = knox.createClient({
-                                key: self.config.s3.accessKeyId,
-                                secret: self.config.s3.secretAccessKey,
-                                region: self.config.s3.region,
-                                bucket: self.config.s3.bucket
-                            });
-                            date = new Date()
-                            newFilename = date.getFullYear() + '-' + date.getMonth() + '-' + date.getDate() + '-' + date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds() + '-' + file.name
-                            client.putFile(file.path, '/' + newFilename, {'Content-Type': file.type, 'Content-Length': file.size}, function (err, response) {
-                                if (response.statusCode == 200) {
-                                    new models.file({
-                                        owner: owner._id,
-                                        name: file.name,
-                                        type: file.type,
-                                        size: file.size,
-                                        room: room._id,
-                                        url: 'https://s3-' + self.config.s3.region + '.amazonaws.com/' + self.config.s3.bucket + '/' + encodeURIComponent(newFilename)
-                                    }).save(function(err, savedFile) {
-                                        self.chatServer.sendFile({
-                                            url: savedFile.url,
-                                            id: savedFile._id,
-                                            name: savedFile.name,
-                                            type: savedFile.type,
-                                            size: Math.floor(savedFile.size / 1024),
-                                            uploaded: savedFile.uploaded,
-                                            owner: owner.displayName,
-                                            room: room._id
-                                        });
-
-                                        res.send({
-                                            status: 'success',
-                                            message: file.name + ' has been saved!',
-                                            url: savedFile.url
-                                        });                                        
-=======
->>>>>>> refs/heads/s3
-
                             })(function(error, url, savedFile) {
                                 // send the updated file to the chatserver
                                 if (error) {
