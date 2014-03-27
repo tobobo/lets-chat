@@ -556,7 +556,7 @@ var Server = function(config) {
             // Go go go!
             if (!self.config.https) {
                 // Create regular HTTP server
-                console.log('port is', self.config.port);
+                console.log(self.config.port, self.config.host);
                 self.server = http.createServer(self.app)
                   .listen(self.config.port, self.config.host);
             } else {
@@ -565,7 +565,6 @@ var Server = function(config) {
                 redirectServer.get('*', function(req, res){
                     res.redirect('https://' + req.host + ':' + self.config.https.port + req.path)
                 })
-                console.log('port is', self.config.port);
                 http.createServer(redirectServer)
                   .listen(self.config.port, self.config.host);
                 // Create HTTPS server

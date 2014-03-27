@@ -1,7 +1,7 @@
 var config = {
 
     // Server
-    host: '', // Not required
+    host: !!process.env.PORT ? '' : 'localhost', // Not required
     port: process.env.PORT || 5000,
 
     url: process.env.MPI_CHAT_HOST,
