@@ -44,7 +44,7 @@ models.message.schema.pre('save', function (done) {
             });
             var msg = {
               title: userName + " mentioned you in " + roomName,
-              message: message.text + "\n" + "http://" + config.url + (config.port != 80 ? ":" + config.port : "") + "/#!/room/" + roomId
+              message: message.text + "\n" + "http://" + config.url + "/#!/room/" + roomId
             }
             p.send(msg, function(error, result) {
               if (error) {
