@@ -32,7 +32,8 @@
     "passport": "0.1.16",
     "passport-local": "0.1.6",
     "passport.socketio": "1.0.1",
-    "pushover-notifications": "~0.1.8"
+    "pushover-notifications": "~0.1.8",
+    "knox": "~0.8.9"
   },
   "engine": {
     "node": ">=0.7"
