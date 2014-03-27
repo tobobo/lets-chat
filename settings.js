@@ -4,7 +4,7 @@ var config = {
     host: !!process.env.PORT ? '' : 'localhost', // Not required
     port: process.env.PORT || 5000,
 
-    url: process.env.MPI_CHAT_HOST,
+    url: process.env.MPI_CHAT_HOST || 'localhost:5000',
 
     // Registration
     disable_registration: false,
