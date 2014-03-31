@@ -44,7 +44,7 @@ var Server = function(config) {
     self.config = config;
 
     // Mongo URL
-    self.mongoURL = process.env.DATABASE_URL || 'mongodb://'
+    self.mongoURL = self.config.db_url || 'mongodb://'
         + self.config.db_user
         + ':' + self.config.db_password
         + '@' + self.config.db_host 

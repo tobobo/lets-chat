@@ -1,10 +1,8 @@
 var config = {
 
     // Server
-    host: !!process.env.PORT ? '' : 'localhost', // Not required
+    host: '', // Not required
     port: process.env.PORT || 5000,
-
-    url: process.env.MPI_CHAT_HOST || 'localhost:5000',
 
     // Registration
     disable_registration: false,
@@ -18,30 +16,26 @@ var config = {
     },
     ***/
 
-    // Database - will be overridden by DATABASE_URL config var
+    // Database
     db_host: 'localhost',
     db_port: 27017,
-    db_name: 'mpi_chat',
+    db_name: 'letschatbro',
     db_user: '',
     db_password: '',
 
+    // Overrides the above settings (helpful for heroku)
+    db_url: process.env.DATABASE_URL,
+
     // Security
     // Please change these!
-    cookie_secret: process.env.MPI_CHAT_COOKIE_SECRET || '1AwKjGUrslS43tv2pHk0xeFi1ePybsG9wvoiTvOn0ss81OVzZL6kr4pnLqw2PDQAa7e1n9aftHYvoULFwY94nkL8UZdPbwdUHHOiIxCPxHqZkd087JIzvI7KdFtf6QB8',
-    password_salt: process.env.MPI_CHAT_PASSWORD_SALT || 'mTqaXXvlPzCgMbqAOQBj9mGG2FDVMFdVFrDLmf8aKRNd9gIL3SnEh7Bl2e81Tvy8PUMOkvwSmJ10CuSsNS8tnyO6qrRWUbhRjc7TLPC0c23osRKwAkZdFdTmuj9peJl5',
+    cookie_secret: 'KeyBoard Cat',
+    password_salt: 'Hello. Yes, This is Dog',
 
     // Misc
     debug: false,
     media_url: '/media',
     uploads_dir: 'uploads',
     plugins_dir: 'plugins',
-
-    s3: {
-        accessKeyId: process.env.MPI_CHAT_AWS_ACCESS_KEY_ID,
-        secretAccessKey: process.env.MPI_CHAT_AWS_SECRET_ACCESS_KEY,
-        region: process.env.MPI_CHAT_AWS_REGION,
-        bucket: process.env.MPI_CHAT_AWS_BUCKET
-    },
 
     // Plugins
     plugins: {
@@ -61,6 +55,16 @@ var config = {
         'image/png',
         'image/gif',
     ],
+
+    // s3 credentials
+
+    s3: {
+        accessKeyId: 'asdf',
+        secretAccessKey: 'asdf',
+        region: 'asdf',
+        bucket: 'asdf'
+    },
+
 
 }
 
