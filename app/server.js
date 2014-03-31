@@ -44,7 +44,7 @@ var Server = function(config) {
     self.config = config;
 
     // Mongo URL
-    self.mongoURL = 'mongodb://'
+    self.mongoURL = process.env.DATABASE_URL || 'mongodb://'
         + self.config.db_user
         + ':' + self.config.db_password
         + '@' + self.config.db_host 
@@ -595,6 +595,7 @@ var Server = function(config) {
             // Go go go!
             if (!self.config.https) {
                 // Create regular HTTP server
+                console.log(self.config.port, self.config.host);
                 self.server = http.createServer(self.app)
                   .listen(self.config.port, self.config.host);
             } else {

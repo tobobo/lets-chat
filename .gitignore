@@ -1,4 +1,3 @@
-settings.js
 node_modules
 .*.swp
 *humbs.db
@@ -6,3 +5,5 @@ node_modules
 *.pem
 *.crt
 *.csr
+
+.DS_Store

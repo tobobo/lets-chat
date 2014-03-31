@@ -62,6 +62,10 @@ var UserSchema = new Schema({
         type: String,
         trim: true
     },
+    pushoverKey: {
+        type: String,
+        trim: true
+    },
 	messages: [{
 		type: Schema.ObjectId,
 		ref: 'Message' 
